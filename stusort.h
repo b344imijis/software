@@ -66,6 +66,7 @@ int comp_asc_soft( const void *c1, const void *c2 )
   return tmp1-tmp2;
 }
 
+
 int comp_des_soft( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -77,10 +78,6 @@ int comp_des_soft( const void *c1, const void *c2 )
   return tmp2-tmp1;
 
 }
-
-
-
-
 
 void sort_asc(struct student students[],int num,int sub_num)
 {
