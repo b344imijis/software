@@ -18,6 +18,8 @@ int stu_num = 0;
 struct student students[256];
 
 
+
+//何でソートを行うかを表示するメニュー
 void sort_menu()
 {
 
@@ -48,8 +50,7 @@ void sort_menu()
 }
 
 
-
-
+//メインメニュー表示
 void show_menu()
 {
 
@@ -115,12 +116,18 @@ int main()
                   sscanf(buf,"%[^\n,],%[^\n,],%d,%d,%d",students[i].number,students[i].name,
                                                         &students[i].eng,&students[i].math,
                                                         &students[i].soft);
+
+                  printf("%s,%s,%d,%d,%d\n",students[i].number,students[i].name,
+                                                        &students[i].eng,&students[i].math,
+                                                        &students[i].soft);
+
+
+
                   i++;
         }
 
-        stu_num = i-1;
+        stu_num = i;
 
-        printf("%d\n",sizeof students/sizeof students[0]);
 
         show_menu();
 

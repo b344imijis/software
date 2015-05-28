@@ -3,12 +3,12 @@
 #define rep(i,n) for(int i = 0;i<(int)(n);i++)
 
 
-
+//テーブルを表示する
 void show_table(struct student students[256],int num)
 {
         rep(i,num)
         {
-                printf("%s,%s,%d,%d,%d\n",
+                printf("|%-10s|%-25s|%-4d|%-4d|%-4d|\n",
                                   students[i].number,students[i].name,
                                   students[i].eng,students[i].math,
                                   students[i].soft);
@@ -16,18 +16,40 @@ void show_table(struct student students[256],int num)
 
 }
 
-
+//データを追加するメソッド
 void add_data(struct student students[],int *num)
 {
         printf("学籍番号,名前,英語の成績,数学の成績,ソフトウェアの成績の順番でデータを入力してください\n");
 
         struct student new_stu;
 
-        scanf("%s",new_stu.number);
-        scanf("%s",new_stu.name);
+
+        /*
+
+        fgets(new_stu.number,sizeof(new_stu.number),stdin);
+        new_stu.number[strlen(new_stu.number)-1] = '\0';
+
+        fgets(new_stu.name,sizeof(new_stu.name),stdin);
+        new_stu.name[strlen(new_stu.name)-1] = '\0';
+
+        fgets(math,sizeof(math),stdin);
+        math[strlen(math)-1] = '\0';
+
+        fgets(eng,sizeof(eng),stdin);
+        eng[strlen(eng)-1] = '\0';
+
+        fgets(soft,sizeof(soft),stdin);
+        soft[strlen(soft-1)]= '\0';
+        */
+
+        
+
+        scanf("%s%s%d%d%d",new_stu.number,new_stu.name,&new_stu.eng,&new_stu.math,&new_stu.soft);
+        /*scanf("%s",new_stu.name); 
         scanf("%d",&new_stu.eng);
         scanf("%d",&new_stu.math);
-        scanf("%d",&new_stu.soft);
+        scanf("%d",&new_stu.soft);*/
+        
 
         students[*num] = new_stu;
 
@@ -40,6 +62,8 @@ void add_data(struct student students[],int *num)
         show_table(students,*num);
 }
 
+
+//学籍番号をキーとしてデータを検索する
 int search(char number[],struct student students[],int num)
 {
 
@@ -63,6 +87,7 @@ int search(char number[],struct student students[],int num)
 }
 
 
+//入力された学籍番号をキーとしてデータを検索する
 int search_byname(struct student students[],int num)
 {
         
@@ -79,17 +104,15 @@ int search_byname(struct student students[],int num)
                                         students[i].number,students[i].name,
                                         students[i].eng,students[i].math,
                                         students[i].soft);
-                        return i;
                 }
 
         }
 
-        printf("データが存在しません\n");
 
         return -1;
 }
 
-
+//入力された学籍番号をキーとして対象のデータを削除する
 void erase(struct student students[],int *num)
 {
 
@@ -104,6 +127,8 @@ void erase(struct student students[],int *num)
         del_num = search(del_stu,students,*num);
         last = students;
         last = last + *num;
+
+        printf("%d\n",del_num);
 
         if(del_num > 0)
         {
@@ -127,6 +152,7 @@ void erase(struct student students[],int *num)
 
 }
 
+//データを別ファイルに保存する
 void save_data(struct student students[],int num)
 {
 

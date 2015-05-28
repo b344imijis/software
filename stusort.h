@@ -1,4 +1,6 @@
 
+
+//student構造体
 struct student
 {
         char number[20];
@@ -9,6 +11,7 @@ struct student
 };
 
 
+//英語の点数をもとにを昇順に並び替える
 int comp_asc_eng( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -20,6 +23,7 @@ int comp_asc_eng( const void *c1, const void *c2 )
   return tmp1-tmp2;
 }
 
+//英語の点数をもとに降順に並び替える
 int comp_des_eng( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -31,7 +35,7 @@ int comp_des_eng( const void *c1, const void *c2 )
   return tmp2-tmp1;
 }
 
-
+//数学の点数をもとに昇順に並び替える
 int comp_asc_math( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -43,6 +47,9 @@ int comp_asc_math( const void *c1, const void *c2 )
   return tmp1-tmp2;
 }
 
+
+
+//数学の点数をもとに降順に並び替える
 int comp_des_math( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -55,6 +62,7 @@ int comp_des_math( const void *c1, const void *c2 )
 
 }
 
+//ソフトウェアの点数をもとに昇順に並び替える
 int comp_asc_soft( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -67,6 +75,7 @@ int comp_asc_soft( const void *c1, const void *c2 )
 }
 
 
+//ソフトウェアの点数をもとに降順に並び替える
 int comp_des_soft( const void *c1, const void *c2 )
 {
   student stu1 = *(student *)c1;
@@ -79,6 +88,7 @@ int comp_des_soft( const void *c1, const void *c2 )
 
 }
 
+//昇順に並び替え
 void sort_asc(struct student students[],int num,int sub_num)
 {
         switch(sub_num)
@@ -89,6 +99,8 @@ void sort_asc(struct student students[],int num,int sub_num)
         }
 }
 
+
+//降順に並び替え
 void sort_des(struct student students[],int num,int sub_num)
 {
         switch(sub_num)
